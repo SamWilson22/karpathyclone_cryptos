@@ -1,5 +1,5 @@
 import hashlib
-import cryptos as sam_okay_cryptos 
+from cryptos.sha256 import sha256 
 
 def test_sha256():
 
@@ -13,5 +13,5 @@ def test_sha256():
     for b in test_bytes:
         print(b)
         gt = hashlib.sha256(b).hexdigest()
-        yolo = sam_okay_cryptos.sha256(b).hex()
+        yolo = sha256(b).hex()
         assert gt == yolo
