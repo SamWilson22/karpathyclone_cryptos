@@ -13,13 +13,13 @@ from itertools import count, islice
 # SHA-256 Function, defined in Section 4
 
 def rotr(x, n, size = 32):
-    return (x >> n) | (x << size - n) & (2**size -1)
+    return (x >> n) | (x << size - n) & (2**size - 1)
 
 def shr(x, n):
     return x >> n
 
 def sig0(x):
-    return rotr(x, 17) ^ rotr(x, 18) ^ shr(x, 3)
+    return rotr(x, 7) ^ rotr(x, 18) ^ shr(x, 3)
 
 def sig1(x):
     return rotr(x, 17) ^ rotr(x, 19) ^ shr(x, 10)
@@ -62,7 +62,7 @@ def genK():
     """
     Follows Section 4.2.2 to generate K
     
-    the first 32 bits of the fractional parts of the cube roots of the first 
+    the first 32 bits of the fractional parts of the cube roots of the first
     64 prime numbers: 
 
     428a2f98 71374491 b5c0fbcf e9b5dba5 3956c25b 59f111f1 923f82a4 ab1c5ed5
@@ -116,7 +116,7 @@ def sha256(b: bytes) -> bytes:
     # Section 5.1: Pad the message
     b = pad(b)
     # Section 5.2: Separate the message into blocks of 512 bits (64 bytes)
-    blocks = [b[1:1+64] for i in range(0, len(b), 64)]
+    blocks = [b[i:i+64] for i in range(0, len(b), 64)]
 
     # for each message black M^1 ... M^n
     H = genH() # Section 5.3
@@ -130,12 +130,42 @@ def sha256(b: bytes) -> bytes:
             if t <= 15:
                 # the first 16 words are just a copy of the block
                 W.append(bytes(M[t*4:t*4+4]))
+            else: 
+                term1 = sig1(b2i(W[t-2]))
+                term2 = b2i(W[t-7])
+                term3 = sig0(b2i(W[t-15]))
+                term4 = b2i(W[t-16])
+                total = (term1 + term2 + term3 + term4) % 2**32
+                W.append(i2b(total))
 
         # 2. Initialize the 8 working variables a,b,c,d,e,f,g,h with prev hash value
-        a, b, c, d, e, f, g, h = h
-        # 3.
+        a, b, c, d, e, f, g, h = H
+
+        # 3. Turn the crank
         for t in range(64):
-            pass
+            T1 = (h + capsig1(e) + ch(e, f, g) + K[t] + b2i(W[t])) % 2**32
+            T2 = (capsig0(a) + maj(a,b,c)) % 2**32
+            h = g
+            g = f 
+            f = e 
+            e = (d + T1) % 2**32
+            d = c 
+            c = b 
+            b = a 
+            a = (T1 + T2) % 2**32
+
+        # 4. Compute the i-th intermediate hash value H^i
+        delta = [a, b, c, d, e, f, g, h]
+        H = [(i1 + i2) % 2**32 for i1, i2 in zip(H, delta)]
+
+    return b''.join(i2b(i) for i in H)
+
+if __name__ == '__main__':
+    import sys
+    assert len(sys.argv) == 2, "Pass in exactly one filename to return checksum of"
+    with open(sys.argv[1], 'rb') as f:
+        print(sha256(f.read()).hex())
+
 ### To be continued...
 
 #I'm going to need to print out blocks before I can begin to understand what is happening in Section 6.2.2
