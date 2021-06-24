@@ -43,12 +43,12 @@ def gen_private_key(source: str = 'os') -> int:
     assert source in ['os', 'user'], "The source must be one of the 'os' or 'user'"
     bytes_fn = {
         'os' : random_bytes_os,
-        'user': rundom_bytes_user,
+        'user': random_bytes_user,
     }[source]
 
     while True:
         key = int.from_bytes(bytes_fn(), 'big')
-        if <= key < _r:
+        if 1 <= key < _r:
             break # the key is valid, break out
     
     return key
