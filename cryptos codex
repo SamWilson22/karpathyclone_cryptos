@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-06-24T23:18:40.735Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36" etag="faU-kTDK0Umj1pPbGiHV" version="14.8.0" type="github">
+<mxfile host="app.diagrams.net" modified="2021-06-24T23:19:33.825Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36" etag="buGop72WnC4rXimkrf89" version="14.8.0" type="github">
   <diagram id="CCILFMgAe0Z8ShA512z5" name="Page-1">
-    <mxGraphModel dx="2400" dy="1835" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="3400" dy="2886" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -108,6 +108,9 @@
         </mxCell>
         <mxCell id="HLV2HzpAMBKtou2pjptz-8" value="What does the library dataclasses do? Creates a wrapper for aour elliptic curve method&amp;nbsp;&lt;br&gt;There are some good general python lessons that can be learned from the changes made in this commit:&lt;br&gt;https://github.com/karpathy/cryptos/commit/e124f53c8c577c0ae5af4e2f1d3e118855a93fda" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
           <mxGeometry x="-1635" y="-245" width="570" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="HLV2HzpAMBKtou2pjptz-9" value="&lt;div&gt;https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm&lt;/div&gt;&lt;div&gt;https://en.wikipedia.org/wiki/B%C3%A9zout%27s_identity&lt;/div&gt;&lt;div&gt;https://en.wikipedia.org/wiki/Euclidean_algorithm#Extended_Euclidean_algorithm&lt;/div&gt;&lt;div&gt;https://en.wikipedia.org/wiki/Modular_multiplicative_inverse&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-1600" y="-350" width="450" height="70" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
