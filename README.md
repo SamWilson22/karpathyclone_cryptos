@@ -8,7 +8,7 @@ Just having fun
 
 #### SHA-256
 
-SHA-256 implementation following [NIST FIPS 180-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf) spec in crypos/sha256'.py'. Pure Python, slow, trying to closely follow the docement spec, obviously not to be used anywhere except for educational purposes.
+SHA-256 implementation following [NIST FIPS 180-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf) spec in 'cryptos/sha256.py'. Pure Python, slow, trying to closely follow the docement spec, obviously not to be used anywhere except for educational purposes.
 
 ```bash
 $ echo "some test file lol" > testfile.txt
@@ -38,6 +38,15 @@ Enter some word #4/5 entropy!
 Enter some word #5/5 cool
 0xd2e21be9bdc05304b7dd4347e73d1a14009732780125db39a1eb7736d9be245
 ```
+
+We can then generate the corresponding public key, which is a point on the elliptic curve:
+
+```bash
+$ python -m cryptos.public_key 0xd2e21be9bdc05304b7dd4347e73d1a14009732780125db39a1eb7736d9be245
+x: B8B2C5DE9F39CAAB1819536285B8DE9A674C6929AAA80CF23F40715DA9A4D765
+y: E716EE6D252C9F52D7138AA73E0C43EBA2F4722613CE3077A8EFA68E1BD64596
+```
+This point can be compressed and then converted into a Bitcoin address (coming soon)
 
 #### License
 MIT
