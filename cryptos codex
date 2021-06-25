@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-06-25T06:43:03.194Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36" etag="zVT0b6ddDDpjwfM7Zerz" version="14.8.1" type="github">
+<mxfile host="app.diagrams.net" modified="2021-06-25T07:03:21.260Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36" etag="LyHAQg2ASmf1SeU63HOL" version="14.8.1" type="github">
   <diagram id="CCILFMgAe0Z8ShA512z5" name="Page-1">
-    <mxGraphModel dx="2699" dy="1532" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2110" dy="1525" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -117,6 +117,12 @@
         </mxCell>
         <mxCell id="IJdZwBMPWXZ1vPP35T8J-4" value="So the going backwards in the sha function (of elliptical curve) is as good as guessing and checking.&amp;nbsp;&lt;br&gt;So what if all the messages and their sha&#39;s were pre-calculated. Then it would simply require a reverse&amp;nbsp;&lt;br&gt;lookup function over an enormously huge dataset. But if that dataset was well organized, it would be manageable&lt;br&gt;&lt;br&gt;Here is another weird thing to consider. for a given message, there is a hash that requires compute on the scale of&amp;nbsp;&lt;br&gt;galaxies to calculate. If that number was somehow magically found, then simply having the two number right next to&amp;nbsp;&lt;br&gt;each other would present itself an almost universal impossibility.&amp;nbsp;&lt;br&gt;&lt;br&gt;What if you created some sort of trick so that people believed that these two numbers existed, when in fact they didn&#39;t.&amp;nbsp;&lt;br&gt;Would that create some sort of psychological re-framing or incentive that leads to new insights into the infallibility of&amp;nbsp;&lt;br&gt;cryptography. Like how the idea of the 4 minute mile had a psychological effect&lt;br&gt;&lt;br&gt;&lt;br&gt;Simply having two numbers next two each other is a universal signal of computational effort. A sign to a civilization&lt;br&gt;about the level of one&#39;s intelligence would be simply be the scale of these two numbers.&amp;nbsp;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
           <mxGeometry x="-1690" y="420" width="640" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="IJdZwBMPWXZ1vPP35T8J-5" value="How does encoding information change its ability to be understood. If I take written language and base 64&amp;nbsp;&lt;br&gt;encode it, would it be any hard to learn? Are there instances where the way we learn things could be encoded&lt;br&gt;in a manner that is more effeccient than we use. There are thousands of encoding schemes out there, they could&amp;nbsp;&lt;br&gt;be searched for until a scheme is found that is on par or even better than what we use&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-1680" y="640" width="620" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IJdZwBMPWXZ1vPP35T8J-6" value="Video on base 58 encoding" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-1700" y="710" width="160" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
