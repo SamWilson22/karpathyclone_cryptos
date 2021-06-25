@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-06-25T07:03:21.260Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36" etag="LyHAQg2ASmf1SeU63HOL" version="14.8.1" type="github">
+<mxfile host="app.diagrams.net" modified="2021-06-25T18:11:26.542Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36" etag="uUrr_DX9JfzZd2RvWqzN" version="14.8.1" type="github">
   <diagram id="CCILFMgAe0Z8ShA512z5" name="Page-1">
-    <mxGraphModel dx="2110" dy="1525" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2080" dy="1525" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -123,6 +123,12 @@
         </mxCell>
         <mxCell id="IJdZwBMPWXZ1vPP35T8J-6" value="Video on base 58 encoding" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
           <mxGeometry x="-1700" y="710" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="IJdZwBMPWXZ1vPP35T8J-7" value="TODO: break down chunk function&lt;br&gt;break down b58encode function&lt;br&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-1700" y="847.5" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="IJdZwBMPWXZ1vPP35T8J-9" value="There is a dancing bewteen the private key, public key, and bc address that needs to be figured out&lt;br&gt;The cryptographic functions used are sha256, elliptical curve, ripemd160, base58 encoding at the end" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-1700" y="880" width="560" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
