@@ -2,8 +2,8 @@
 Function that converts public key to (Compressed) Bitcoun address and related utilities
 """
 
-from .sha import sha 256
-from .ripemd160 import RIPEMD160 
+from .sha256 import sha256
+from .ripemd160 import ripemd160 
 
 # -----------------------------------------------------------------------------
 # base58 encoding / decoding utilties
@@ -23,38 +23,37 @@ def b58encode(b):
     n = int.from_bytes(b, 'big')
     ix = chunk(n, len(alphabet))
     s = ''.join(alphabet[i] for i in reversed(ix))
-    # special case handle the leading 0 bytes... �\_(?)_/�
+    # special case handle the leading 0 bytes... ¯\_(ツ)_/¯
     num_leading_zeros = len(b) - len(b.lstrip(b'\x00'))
     res = num_leading_zeros * alphabet[0] + s
+    return res
 
 #---------------------------------------------------------------------------
 
 def pk_to_address_bytes(public_key) -> bytes:
 
     #generate the compress public key 
-    prefix = '02' if public_key.y % 2 == 0 else '03'
-    hex_compressed_public_key = prefix + format(public_key.x, '064x')
+    prefix = 'b\x02' if public_key.y % 2 == 0 else 'b\x03'
+    pkb = prefix + public_key.x.to_byte(32, 'big')
     
     #double had to get the payload
-    pkb = bytes.fromhex(hex_compressed_public_key) # (1 + 32 = 33) bytes
-    pkb_sha = sha256(pkb)
-    pkb_sha_ripemd = RIPEMD160(pkb_sha).digest()
+    pkb_hash = ripemd160(sha256(pkb)).digest()
 
     # add verstion byte (0x00 for Main Network)
-    ver_pkb_sha_ripemd = b'\x00' + pkb_sha_ripemd
+    ver_pkb_hash = b'\x00' + pkb_hash
 
     #calculate the checksum
-    checksum = sha256(sha256(ver_pkb_sha_ripemd))[:4]
+    checksum = sha256(sha256(ver_pkb_hash))[:4]
 
     # append to form the full 25-byte binary Bitcoin Address
-    byte_address = ver_pkb_sha_ripemd + checksum
+    byte_address = ver_pkb_hash + checksum
 
-    
+
     return byte_address
 
 
 def pk_to_address(public_key) -> str:
-    byte_address = pk_to+address_bytes(public_key)
+    byte_address = pk_to_address_bytes(public_key)
     b58check_address = b58encode(byte_address)
     return b58check_address
 

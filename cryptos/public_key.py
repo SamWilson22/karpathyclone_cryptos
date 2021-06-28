@@ -93,22 +93,18 @@ def gen_bitcoin_curve():
     G = Point(curve, _Gx, _Gy)
     return curve, G
 
-# -----------------------------------------------------------------------------
-if __name__ == '__main__':
+def sk_to_pk(sk):
 
-    #read a private key from the user
-    import sys
-    if len(sys.argv) == 2:
-        # read a private key from console
-        private_key = int(sys.argv[1], 16)
+    # convenience function that takes the private (secret) key
+    # and return the public key. sk can be passed in as integer or hex string
+    if isinstance(sk, int):
+        private_key = sk
+    elif isinstance(sk, str):
+        private_key = int(sk,16) #assume it is given as hex
     else:
-        #take the private key example from Mastering Bitcoin, Chapter 4
-        private_key = int('1E99423A4ED27608A15A2616A2B0E9E52CED330AC530EDCC32C8FFC6A526AEDD', 16)
-    
-    #round the elliptic curve we go...
+        raise ValueError("private key sk should be an int or a hex string")
+
     curve, G = gen_bitcoin_curve()
     public_key = private_key * G
 
-    #print the public key point on the curve 
-    print('x:', format(public_key.x, '064x').upper()) # (striop the 0x part denoting hex numher)
-    print('y:', format(public_key.y, '064x').upper())
+    return public_key
